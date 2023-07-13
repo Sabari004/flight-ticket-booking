@@ -560,3 +560,83 @@ border-color: color-mix(in srgb, color percentage, color percentage);
   max-height: 100px;
   
 }
+.flight-comp h2,h3{
+font-family: 'Lexend', sans-serif;
+color: rgb(0, 0, 0);
+}
+.flight-comp p{
+font-weight: 500;
+color: gray;
+}
+.flight-comp{
+  width:fit-content;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1.6px solid rgb(183, 182, 182);
+  border-radius: 10px;
+}
+.flight-comp-cont{
+  width: fit-content;
+}
+.flight-comp-img img{
+  width:120px;
+  margin: 20px;
+}
+.flight-comp-child{
+  display: flex;
+
+}
+.flight-comp-dest{
+  display: flex;
+  margin-top: 20px;
+}
+.flight-comp-dest-child1{
+  display: flex;
+}
+.hr-tag{
+  border: 2px dashed grey;
+}
+.tag{
+  width: 30px;
+ transform: translate(0,50%);
+}
+.flight-flight{
+  display: flex;
+}
+.flight-flight img{
+  width: 20px;
+  margin-top: 32px;
+  height: 20px;
+}
+.flight-comp-cont h2{
+  margin-left: 20px;
+  margin-top: 20px;
+} 
+.flight-comp-dest-child{
+  padding: 10px;
+  min-width: 120px;
+  max-width:150px;
+}
+.flight-comp-dest-child p,h3{
+  padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.flight-comp-cont1{
+  justify-content: center;
+  display: flex;
+  flex-direction:column ;
+}
+.flight-comp-dest-child2 button{
+  background-color: #ffc800;
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 7px;
+  color: white;
+  font-weight: bold;
+}
+.flight-comp-dest-child2-button{
+  display: flex;
+  justify-content: space-around;
+} 

@@ -1,11 +1,15 @@
-import { Navbar, Sidebar } from "../Components";
+import { FlightComp, NavBar2, Sidebar } from "../Components";
 
 function BookTickets() {
   return (
     <>
-      <Navbar />
+      <NavBar2 />
       <Sidebar />
-      <h1>BookTickets</h1>
+
+      <div className="home-container">
+        <FlightComp />
+        <FlightComp />
+      </div>
     </>
   );
 }
