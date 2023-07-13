@@ -10,7 +10,7 @@ function Sidebar() {
           </Link>
         </li>
         <li class="has-subnav">
-          <Link to="/">
+          <Link to="/book-tickets">
             <i class="fa fa-compass"></i>
             <span class="nav-text">Book Tickets</span>
           </Link>
