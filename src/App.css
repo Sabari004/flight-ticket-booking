@@ -141,6 +141,14 @@ body{
   height: 9vh;
   display: flex;
   justify-content: space-around;
+  /* position: fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:0; */
+  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+
+
 }
 .Navbar-child{
   width: 95%;
@@ -570,7 +578,7 @@ color: gray;
 }
 .flight-comp{
   width:fit-content;
-  margin-top: 20px;
+  margin-top: 30px;
   margin-bottom: 20px;
   border: 1.6px solid rgb(183, 182, 182);
   border-radius: 10px;
@@ -640,3 +648,255 @@ color: gray;
   display: flex;
   justify-content: space-around;
 } 
+.bookc{
+  width: 90%;
+  margin-bottom: 30px;
+
+}
+.bookcard{
+  width: 100%;
+  /* padding: 1000px; */
+  /* margin-top:10px; */
+  /* margin: 20px; */
+  padding: 50px;
+  border-radius: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  display: flex;
+  justify-content: space-around;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  background-color: white;
+}
+.tet{
+  font-size:40px;
+  font-weight:400;
+}
+.ticket{
+  width:150px;
+  height:100px;
+  margin-left:35px;
+}
+iuput[placeholder="Date of journey"]{
+  
+}
+.ter{
+  height:60px;
+  width:28%;
+  margin-right:3px;
+
+  border-style: solid;
+border-color: #d6d6d4;
+border-radius:5px;
+border-width:1px;
+padding-top:10px;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+  /* border-color: black; */
+}
+.ticket{
+  margin-top:5px;
+  margin-left: 10px;
+  width:90%;
+  height:40%;
+  border:none;
+  outline:none;
+  font-size:20px;
+}
+.word{
+  margin-top:2px;
+  margin-left:10px;
+  font-size:11px;
+  font-weight:500;
+  color:#6f7070;
+}
+.dummy{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.book-cont{
+  display: flex;
+  justify-content: space-around;
+}
+.flight-comp-align{
+  margin-left: 5%;
+}
+.book-title{
+  margin-left: 5%;
+  font-family: 'Lexend', sans-serif;
+  margin-bottom: 70px;
+  color: #6f7070;
+}
+.seat-button {
+  margin-right: 10px;
+  padding: 15px;
+  background-color: rgb(47, 255, 47);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  cursor:pointer
+}
+.seat-button:hover{
+  background-color: #049bff;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.pattern-column{
+  width: 50%;
+  margin-left: 5%;
+
+}
+.booknow-comp{
+  background-color:#e2e2e2;
+  padding: 50px;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.booknow-cont{
+  text-align: center;
+  width: 40%;
+  /* height: 40px; */
+  background-color: #65e5ff;
+  border-radius: 20px;
+}
+.passenger-form .login-field{
+  margin-top: 20px;
+}
+.confirm{
+  margin-top: 30px;
+}
+.customer-supp{
+  height: 80vh;
+  position: relative;
+}
+.customer-supp .home-container2-search{
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+}
+.tickettop{
+  padding: 20px;
+  height:100vh;
+margin: 0 auto;
+max-width: 1200px;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+/* justify-content: center; */
+}
+.ticketcard{
+
+  width: 500px;
+  height:800px;
+  margin-top:10px;
+  margin: 20px;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+  /* flex-direction: column; */
+  align-items: center;
+  /* justify-content: center; */
+  background-color: white;
+}
+.ticketcard2{
+  display:flex;
+  box-shadow:rgba(99,99,99,0.2) 0px 2px 0px 0px;
+ 
+}
+#t2i {
+  font-family: "Ysabeau Office", sans-serif;
+}
+#t21 {
+  font-size:25px;
+    font-weight:500;
+
+}
+#t22 {
+  color: #ffad01;
+  font-size:25px;
+    font-weight:500;
+}
+  .flight-flight1{
+      box-shadow:rgba(99,99,99,0.2) 0px 2px 0px 0px;
+    display: flex;
+  }
+  .flight-comp-dest-child10{
+      box-shadow:rgba(99,99,99,0.2) 0px 2px 0px 0px;
+    padding: 10px;
+    min-width: 180px;
+    max-width:150px;
+  }
+  .flight-comp-dest-child p,h3{
+    padding: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    /* margin-bottom:20px; */
+  }
+  .detail1{
+      margin-top:30px;
+       display:flex;
+      height:100px; 
+     
+  }
+  .detail12{
+      margin-top:30px;
+       display:flex;
+      height:100px; 
+      border-bottom:1px dashed black;
+     
+  }
+  
+  .detail2{
+      justify-content:center;
+      /* //text-align: center; */
+      margin-top:10px;
+      margin-left:20px;
+      height:60px;
+      width:190px;
+  }
+  .to{
+      color:#6f7070;
+      font-size:15px;
+      font-weight:300;
+      font-family: 'Ysabeau Office', sans-serif;
+      margin-bottom:10px;
+  }
+  .to2{
+      color:#000000;
+      font-size:30px;
+      font-weight:500;
+      font-family: 'Ysabeau Office', sans-serif;
+      margin-bottom:10px;
+  }
+  .img23{
+      height:200px;
+      align-items:center;
+  }
+  .u1{
+      height:180px;
+      margin-left:20px;
+  }
+  .blue{
+    background-color: white;
+  }
+  .green{
+    background-color: rgb(4, 163, 255);
+
+
+  }
+  .booked{
+    background-color:rgb(47, 255, 47),
+
+  }
+  .booked:hover{
+    background-color:rgb(47, 255, 47) ;
+  }

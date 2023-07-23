@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import flight from "../Assests/flight1.png";
 import Navbar from "../Components/Navbar";
 import Sidebar from "../Components/Sidebar";
@@ -12,15 +12,24 @@ import amex from "../Assests/amex.png";
 import phone from "../Assests/phone.png";
 import gpay from "../Assests/gpay.png";
 import paytm from "../Assests/paytm.png";
+import { useSelector } from "react-redux";
+import { selectUser } from "../redux/userSlice";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Home() {
+  // const user = useSelector(selectUser);
+  useEffect(() => {
+    toast.success("Successfully Signed in");
+  }, []);
   return (
     <>
+      <ToastContainer />
       <Sidebar />
       <div className="home-container">
         <div className="home-container1">
           <div className="home-container1-child">
             <div className="home-container1-title">
-              <h1>Say yes to the world</h1>
+              <h1> Say yes to the world</h1>
             </div>
             <div className="home-container1-para">
               Find your flight and explore the world with us <br />

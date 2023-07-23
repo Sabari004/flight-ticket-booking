@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function Sidebar() {
+  const navigate = useNavigate();
   return (
     <nav style={{ marginTop: "69px", position: "fixed" }} class="main-menu">
       <ul>
@@ -16,13 +17,13 @@ function Sidebar() {
           </Link>
         </li>
         <li class="has-subnav">
-          <Link to="/">
+          <Link to="/booked">
             <i class="fa fa-ticket"></i>
             <span class="nav-text">Booked Flights</span>
           </Link>
         </li>
         <li class="has-subnav">
-          <Link to="/">
+          <Link to="/customer">
             <i class="fa fa-comments"></i>
             <span class="nav-text">Customer Support</span>
           </Link>
@@ -31,10 +32,20 @@ function Sidebar() {
 
       <ul class="logout">
         <li>
-          <a href="#">
+          <button
+            style={{
+              border: "none",
+              borderRadius: "20px",
+              backgroundColor: "transparent",
+            }}
+            onClick={(e) => {
+              window.localStorage.clear();
+              navigate("/");
+            }}
+          >
             <i class="fa fa-power-off fa-2x"></i>
             <span class="nav-text">Logout</span>
-          </a>
+          </button>
         </li>
       </ul>
     </nav>

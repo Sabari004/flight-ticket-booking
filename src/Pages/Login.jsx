@@ -5,9 +5,34 @@ import google from "../Assests/google.png";
 import micro from "../Assests/microsoft.png";
 import flight from "../Assests/flight.png";
 import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/userSlice";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Login() {
+  const dispatch = useDispatch();
+  const submitHandler = (e) => {
+    e.preventDefault();
+    axios.get(`http://localhost:8080/user/${name}/${pass}`).then((r) => {
+      if (r.data !== null) {
+        dispatch(
+          login({
+            username: name,
+          })
+        );
+        localStorage.setItem("user", JSON.stringify({ username: name }));
+        navigate("/home");
+      } else {
+        alert("Username or Password invalid");
+      }
+    });
+  };
   const navigate = useNavigate();
+  const [name, setName] = useState("");
+  const [pass, setPass] = useState("");
   return (
     <>
       <div className="loginHeader">
@@ -44,6 +69,10 @@ function Login() {
                   label="Username"
                   variant="outlined"
                   className="login-field"
+                  value={name}
+                  onChange={(e) => {
+                    setName(e.currentTarget.value);
+                  }}
                 />
               </div>
               <div className="login-container2-field">
@@ -52,12 +81,16 @@ function Login() {
                   label="Password"
                   variant="outlined"
                   className="login-field"
+                  value={pass}
+                  onChange={(e) => {
+                    setPass(e.currentTarget.value);
+                  }}
                 />
               </div>
               <div className="login-container2-button">
                 <button
                   onClick={(e) => {
-                    navigate("/home");
+                    submitHandler(e);
                   }}
                 >
                   Login
