@@ -65,7 +65,7 @@ function FlightComp(props) {
 
                 <div className="flight-comp-dest-child">
                   <h3>End</h3>
-                  <p>{solve(props.mess.stTime)}</p>
+                  <p>{solve(props.mess.endTime)}</p>
                 </div>
               </div>
             </div>

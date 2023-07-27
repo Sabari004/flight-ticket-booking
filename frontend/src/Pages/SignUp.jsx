@@ -10,38 +10,41 @@ import { useDispatch } from "react-redux";
 import { login } from "../redux/userSlice";
 function SignUp() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
   const submitHandle = (e) => {
-    axios.get(`http://localhost:8080/user/${username}`).then((r) => {
-      if (r.data !== null) {
-        toast.error("User Already exists");
-      } else {
-        axios
-          .post("http://localhost:8080/user", {
-            username,
-            name,
-            email,
-            password,
+    // axios.get(`http://localhost:8080/user/${username}`).then((r) => {
+    //   if (r.data !== null) {
+    //     toast.error("User Already exists");
+    //   } else {
+    axios
+      .post("http://localhost:8181/api/v1/auth/register", {
+        name,
+        email,
+        password,
+      })
+      .then((r) => {
+        console.log(r.data.token);
+        dispatch(
+          login({
+            username: email,
           })
-          .then((r) => {
-            dispatch(
-              login({
-                username: username,
-              })
-            );
-            localStorage.setItem(
-              "user",
-              JSON.stringify({ username: username })
-            );
+        );
+        localStorage.setItem(
+          "user",
+          JSON.stringify({
+            email: email,
+            password: password,
+            token: r.data.token,
+          })
+        );
 
-            navigate("/home");
-          });
-      }
-    });
+        navigate("/home");
+      });
+    // }
+    // });
   };
   return (
     <>
@@ -66,15 +69,16 @@ function SignUp() {
               <div className="login-container2-title">
                 <h1>Sign Up</h1>
               </div>
+
               <div className="login-container2-field">
                 <TextField
                   id="outlined-basic"
-                  label="Username"
+                  label="Email"
                   variant="outlined"
                   className="login-field"
-                  value={username}
+                  value={email}
                   onChange={(e) => {
-                    setUsername(e.target.value);
+                    setEmail(e.target.value);
                   }}
                 />
               </div>
@@ -93,21 +97,10 @@ function SignUp() {
               <div className="login-container2-field">
                 <TextField
                   id="outlined-basic"
-                  label="Email"
-                  variant="outlined"
-                  className="login-field"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                  }}
-                />
-              </div>
-              <div className="login-container2-field">
-                <TextField
-                  id="outlined-basic"
                   label="Password"
                   variant="outlined"
                   className="login-field"
+                  type="password"
                   value={password}
                   onChange={(e) => {
                     setPassword(e.target.value);

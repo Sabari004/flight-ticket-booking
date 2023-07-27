@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { NavBar2, Sidebar } from "../Components";
 // import PatternComponent from "../Components/PatternComponent";
 import { TextField, colors } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { json, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 function BookNow() {
   const [request, setRequest] = useState("");
@@ -10,19 +10,45 @@ function BookNow() {
   const [gender, setGender] = useState("");
   const navigate = useNavigate();
   let params = useParams();
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("passenger"));
+    if (data != null) {
+      setRequest(data.request);
+      setPassName(data.passName);
+      setGender(data.gender);
+    }
+  }, []);
   const submitHandle = () => {
     axios
-      .post("http://localhost:8080/seat", {
-        seatId: JSON.parse(localStorage.getItem("seatId")).seatId,
-        seatNo: JSON.parse(localStorage.getItem("seatId")).seatNo,
-        seatStatus: true,
-        flightid: params.id,
-        passName: passName,
-        gender: gender,
-        request: request,
-        username: JSON.parse(localStorage.getItem("user")).username,
-      })
+      .post(
+        "http://localhost:8181/api/v1/auth/seat",
+        {
+          seatId: JSON.parse(localStorage.getItem("seatId")).seatId,
+          seatNo: JSON.parse(localStorage.getItem("seatId")).seatNo,
+          seatStatus: true,
+          flightid: params.id,
+          passName: passName,
+          gender: gender,
+          request: request,
+          email: JSON.parse(localStorage.getItem("user")).email,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${
+              JSON.parse(localStorage.getItem("user")).token
+            }`,
+          },
+        }
+      )
       .then((r) => {
+        localStorage.setItem(
+          "passenger",
+          JSON.stringify({
+            passName: passName,
+            gender: gender,
+            request: request,
+          })
+        );
         alert("Your seat is Booked");
         navigate("/book-tickets");
       });
@@ -94,10 +120,12 @@ const PatternComponent = (props) => {
     );
   };
   useEffect(() => {
-    axios.get(`http://localhost:8080/seat/flight/${props.fid}`).then((r) => {
-      console.log(r.data);
-      setSeats(r.data);
-    });
+    axios
+      .get(`http://localhost:8181/api/v1/auth/seat/flight/${props.fid}`)
+      .then((r) => {
+        console.log(r.data);
+        setSeats(r.data);
+      });
   }, []);
   function styling(id) {
     if (id.seatId === colour && id.seatStatus === false) return "green";

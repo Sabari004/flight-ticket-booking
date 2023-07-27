@@ -16,25 +16,40 @@ function Login() {
   const dispatch = useDispatch();
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:8080/user/${name}/${pass}`).then((r) => {
-      if (r.data !== null) {
-        dispatch(
-          login({
-            username: name,
-          })
-        );
-        localStorage.setItem("user", JSON.stringify({ username: name }));
-        navigate("/home");
-      } else {
-        alert("Username or Password invalid");
-      }
-    });
+    axios
+      .post(`http://localhost:8181/api/v1/auth/authenticate`, {
+        email: email,
+        password: pass,
+      })
+      .then((r) => {
+        if (r.data !== null) {
+          dispatch(
+            login({
+              username: email,
+            })
+          );
+          localStorage.setItem(
+            "user",
+            JSON.stringify({
+              email: email,
+              pass: pass,
+              token: r.data.token,
+            })
+          );
+          navigate("/home");
+        }
+      })
+      .catch((r) => {
+        // alert(r.response.status);
+        toast.error("Username or Password invalid");
+      });
   };
   const navigate = useNavigate();
-  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   return (
     <>
+      <ToastContainer />
       <div className="loginHeader">
         <div className="loginHeader-title">
           <div className="loginHeader-title1">
@@ -69,9 +84,9 @@ function Login() {
                   label="Username"
                   variant="outlined"
                   className="login-field"
-                  value={name}
+                  value={email}
                   onChange={(e) => {
-                    setName(e.currentTarget.value);
+                    setEmail(e.currentTarget.value);
                   }}
                 />
               </div>
