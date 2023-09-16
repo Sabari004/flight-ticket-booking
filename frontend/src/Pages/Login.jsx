@@ -96,6 +96,7 @@ function Login() {
                   label="Password"
                   variant="outlined"
                   className="login-field"
+                  type="password"
                   value={pass}
                   onChange={(e) => {
                     setPass(e.currentTarget.value);
